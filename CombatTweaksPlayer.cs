@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Audio;
@@ -30,38 +29,32 @@ namespace CombatTweaks
 			}
 		}
 
-		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+		/*public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)
 		{
-			Main.NewText("ModifyHitNPC");
+			Main.NewText("ModifyHitNPCWithItem");
 			if (counterDamage > 0)
 			{
-				damage += counterDamage;
-				counterDamage -= damage;
+				modifiers.FinalDamage += counterDamage;
+				counterDamage -= (int)modifiers.FinalDamage;
 				Main.NewText("Counter Damage spent.");
 				SoundEngine.PlaySound(SoundID.Run with {Pitch = +0.75f, Volume = 1f}, target.position);
 			}
-		}
-		public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit)
+		}*/
+		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			Main.NewText("ModifyHitPvp");
+			Main.NewText("OnHitNPCWithItem");
 			if (counterDamage > 0)
 			{
-				damage += counterDamage;
-				counterDamage -= damage;
+				damageDone += counterDamage;
+				counterDamage -= (int)damageDone;
 				Main.NewText("Counter Damage spent.");
 				SoundEngine.PlaySound(SoundID.Run with {Pitch = +0.75f, Volume = 1f}, target.position);
 			}
 		}
 		
-		//	I probably want to use PostHurt instead of PreHurt because PostHurt considers the damage that has already been applied.
-		/*public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
-        {
-			counterDamageReserve += damage;
-			return true;
-		}*/
-		public override void PostHurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter)
+		public override void PostHurt(Player.HurtInfo info)
 		{
-			counterDamageReserve += (int)damage;
+			counterDamageReserve += (int) info.Damage;
 		}
 	}
 }
