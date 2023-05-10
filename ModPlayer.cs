@@ -321,7 +321,7 @@ namespace CombatTweaks
 			}
 		}
 		
-		public override void ModifyHurt(ref Player.HurtModifiers modifiers)/* tModPorter Override ImmuneTo, FreeDodge or ConsumableDodge instead to prevent taking damage */
+		public override void ModifyHurt(ref Player.HurtModifiers modifiers)
         {
 			var damage = (int)modifiers.FinalDamage.Flat;
 			var hitDirection = modifiers.HitDirection;
@@ -380,8 +380,9 @@ namespace CombatTweaks
 				OnParry();
 				return true;
 			}
-			return true;
+			return false;
 		}
+		
 		
 		//	Immune Time and received damage is only after PreHurt, so the Immune Time scripts must be here, in the PostHurt Method. (Using the Hurt Method will not work.)
 		public override void PostHurt(Player.HurtInfo info)
