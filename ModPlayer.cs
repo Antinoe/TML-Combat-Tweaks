@@ -4,6 +4,8 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
+using Terraria.Graphics.CameraModifiers;
+using Microsoft.Xna.Framework;
 
 namespace CombatTweaks
 {
@@ -79,9 +81,10 @@ namespace CombatTweaks
 		public int parryCooldown = 0;
 		public bool parryCounter = true;
 		public int parryCounterCooldown = 0;
-		public int screenShakeTimerGuarding = 0;
-		public int screenShakeTimerParryingAttempt = 0;
-		public int screenShakeTimerParrying = 0;
+		PunchCameraModifier shakeBrittle => new PunchCameraModifier(Main.LocalPlayer.Center, (Main.rand.NextFloat() * (MathHelper.TwoPi)).ToRotationVector2(), 1f, 10f, 10, 15f, "shakeBrittle");
+		PunchCameraModifier shakeWeak => new PunchCameraModifier(Main.LocalPlayer.Center, (Main.rand.NextFloat() * (MathHelper.TwoPi)).ToRotationVector2(), 1.5f, 10f, 10, 15f, "shakeWeak");
+		PunchCameraModifier shakeModerate => new PunchCameraModifier(Main.LocalPlayer.Center, (Main.rand.NextFloat() * (MathHelper.TwoPi)).ToRotationVector2(), 2f, 10f, 10, 15f, "shakeModerate");
+		PunchCameraModifier shakeStrong => new PunchCameraModifier(Main.LocalPlayer.Center, (Main.rand.NextFloat() * (MathHelper.TwoPi)).ToRotationVector2(), 2.5f, 10f, 10, 15f, "shakeStrong");
 		
 		//	Resetting the Booleans is important, as some of them may not reset by themselves.
 		public override void ResetEffects()
@@ -126,7 +129,7 @@ namespace CombatTweaks
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeGuarding)
 				{
-					screenShakeTimerGuarding += 5;
+					Main.instance.CameraModifiers.Add(shakeWeak);
 				}
 			}
 			if (CombatTweaks.Guard.JustReleased && BlockingConfig.Instance.enableGuarding && guardingCooldown == 0)
@@ -138,7 +141,7 @@ namespace CombatTweaks
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeGuarding)
 				{
-					screenShakeTimerGuarding += 5;
+					Main.instance.CameraModifiers.Add(shakeWeak);
 				}
 				guardBashTimer = 0;
 			}
@@ -150,7 +153,7 @@ namespace CombatTweaks
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeGuardingGuardBash)
 				{
-					screenShakeTimerGuarding += BlockingConfig.Instance.guardBashTimer;
+					Main.instance.CameraModifiers.Add(shakeStrong);
 				}
 					guardBashTimer = BlockingConfig.Instance.guardBashTimer;
 					guardBashCooldown = BlockingConfig.Instance.guardBashCooldown;
@@ -209,7 +212,7 @@ namespace CombatTweaks
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeParrying)
 				{
-					screenShakeTimerParryingAttempt += BlockingConfig.Instance.parryTimer;
+					Main.instance.CameraModifiers.Add(shakeModerate);
 				}
 				if (parryTimer <= 0) //If less than or equal to 0.
 				{
@@ -304,20 +307,6 @@ namespace CombatTweaks
 			if (hasBootBenefits && guardTimer > 0)
 			{
 				Player.moveSpeed += BlockingConfig.Instance.bootBenefitsMoveSpeed;
-			}
-			
-			//	Screenshake
-			if (screenShakeTimerGuarding > 0)
-			{
-				screenShakeTimerGuarding--;
-			}
-			if (screenShakeTimerParryingAttempt > 0)
-			{
-				screenShakeTimerParryingAttempt--;
-			}
-			if (screenShakeTimerParrying > 0)
-			{
-				screenShakeTimerParrying--;
 			}
 		}
 		
@@ -447,7 +436,7 @@ namespace CombatTweaks
 			}
 			if (CombatTweaksConfigClient.Instance.enableScreenshakeParrying)
 			{
-				screenShakeTimerParrying += BlockingConfig.Instance.parryTimer;
+					Main.instance.CameraModifiers.Add(shakeModerate);
 			}
 			Player.immune = true;
 			Player.immuneTime = BlockingConfig.Instance.parryImmuneTime;
@@ -485,25 +474,6 @@ namespace CombatTweaks
 			if (parryTimer >= 10)
 			{
 				Player.bodyFrame.Y = Player.bodyFrame.Height * 4;
-			}
-		}
-		
-		public override void ModifyScreenPosition()
-		{
-			if (screenShakeTimerGuarding > 0)
-			{
-				Main.screenPosition.X += (float)Math.Round(Main.rand.Next((int)(0f - 1), (int)1) * CombatTweaksConfigClient.Instance.screenShakeAmountGuarding);
-				Main.screenPosition.Y += (float)Math.Round(Main.rand.Next((int)(0f - 1), (int)1) * CombatTweaksConfigClient.Instance.screenShakeAmountGuarding);
-			}
-			if (screenShakeTimerParryingAttempt > 0)
-			{
-				Main.screenPosition.X += (float)Math.Round(Main.rand.Next((int)(0f - 1), (int)1) * CombatTweaksConfigClient.Instance.screenShakeAmountParryingAttempt);
-				Main.screenPosition.Y += (float)Math.Round(Main.rand.Next((int)(0f - 1), (int)1) * CombatTweaksConfigClient.Instance.screenShakeAmountParryingAttempt);
-			}
-			if (screenShakeTimerParrying > 0)
-			{
-				Main.screenPosition.X += (float)Math.Round(Main.rand.Next((int)(0f - 1), (int)1) * CombatTweaksConfigClient.Instance.screenShakeAmountParrying);
-				Main.screenPosition.Y += (float)Math.Round(Main.rand.Next((int)(0f - 1), (int)1) * CombatTweaksConfigClient.Instance.screenShakeAmountParrying);
 			}
 		}
 		
