@@ -109,6 +109,14 @@ namespace CombatTweaks
         [Increment(.05f)]
         public float blockingPotency {get; set;}
         
+        [Label("[i:TitanGlove][i:ThornsPotion] Thorns Potency")]
+        [Tooltip("The percentage of thorns Guarding applies.\n[Default: 0.05]")]
+        [Slider]
+        [DefaultValue(0.05f)]
+        [Range(0f, 1f)]
+        [Increment(.05f)]
+        public float thornsPotency {get; set;}
+        
         [Label("[i:CrossNecklace] Blocking Immune Time")]
         [Tooltip("How long Players are immune after Blocking.\n[Default: 40]")]
         [Slider]
@@ -176,6 +184,14 @@ namespace CombatTweaks
         [Range(0f, 1f)]
         [Increment(.05f)]
         public float shieldBlockingPotency {get; set;}
+        
+        [Label("[i:CobaltShield][i:ThornsPotion] Shield Thorns Potency")]
+        [Tooltip("Additional percentage of thorns Shield Guarding applies.\n[Default: 0.1]")]
+        [Slider]
+        [DefaultValue(0.1f)]
+        [Range(0f, 1f)]
+        [Increment(.05f)]
+        public float shieldThornsPotency {get; set;}
         
         [Label("[i:CobaltShield][i:Stopwatch] Potent Guarding Cooldown")]
         [Tooltip("How long until Guarding may be performed again.\n[Default: 0]")]

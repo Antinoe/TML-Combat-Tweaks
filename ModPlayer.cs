@@ -165,7 +165,8 @@ namespace CombatTweaks
 					potentGuarding = true;
 					if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBlockShield)
 					{
-						SoundEngine.PlaySound(BlockShield, Player.position);
+						//SoundEngine.PlaySound(BlockShield, Player.position);
+						SoundEngine.PlaySound(SoundID.Item53 with {Pitch = -0.75f, Volume = 1f}, Player.position);
 					}
 				}
 				else
@@ -173,7 +174,8 @@ namespace CombatTweaks
 					potentGuarding = false;
 					if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBlock)
 					{
-						SoundEngine.PlaySound(Block, Player.position);
+						//SoundEngine.PlaySound(Block, Player.position);
+						SoundEngine.PlaySound(SoundID.Dig with {Pitch = -0.50f, Volume = 1f}, Player.position);
 					}
 				}
 			}
@@ -231,11 +233,15 @@ namespace CombatTweaks
 			//	Guarding
 			if (guardTimer > 0)
 			{
+				Player.delayUseItem = true;
+			}
+			if (guardTimer > 0 && parryTimer <= 0)
+			{
 				Player.endurance += BlockingConfig.Instance.blockingPotency;
 				Player.accRunSpeed *= BlockingConfig.Instance.guardingMoveSpeed;
 				Player.maxRunSpeed *= BlockingConfig.Instance.guardingMoveSpeed;
 				Player.velocity.X *= 0.95f; //	This is here to prevent usage of Speed items like the Hermes Boots or the Speedbooster from Metroid Mod.
-				Player.delayUseItem = true;
+				Player.thorns += BlockingConfig.Instance.thornsPotency;
 			}
 			if (guardingCooldown > 0)
 			{
@@ -259,7 +265,7 @@ namespace CombatTweaks
 			//	Guard Bashing
 			if (guardBashing)
 			{
-				Player.thorns = BlockingConfig.Instance.guardBashingPotency;
+				Player.thorns += BlockingConfig.Instance.guardBashingPotency;
 			}
 			if (guardBashTimer > 0)
 			{
@@ -279,6 +285,7 @@ namespace CombatTweaks
 			if (guardTimer > 0 && hasShield)
 			{
 				Player.endurance += BlockingConfig.Instance.shieldBlockingPotency;
+				Player.thorns += BlockingConfig.Instance.shieldThornsPotency;
 			}
 			
 			//	Glove Equipped
@@ -320,19 +327,20 @@ namespace CombatTweaks
 				if (!hasShield && parryTimer == 0)
 				{
 					modifiers.DisableSound();
+					modifiers.KnockbackImmunityEffectiveness *= 25f;
 					//	Potent Guarding
 					if (potentGuarding && canPotentGuard && !BlockingConfig.Instance.potentGuardingRequiresShield && Player.statMana >= damage - Player.statDefense)
 					{
 						Player.statMana -= damage - Player.statDefense;
-						Player.velocity.X = 5f * hitDirection;
-						Player.velocity.Y = -3f;
+						//Player.velocity.X = 5f * hitDirection;
+						//Player.velocity.Y = -3f;
 						OnPotentBlock();
 					}
 					//	No Mana left for Potent Guarding. Normal Guarding.
 					else
 					{
-						Player.velocity.X = 5f * hitDirection;
-						Player.velocity.Y = -3f;
+						//Player.velocity.X = 5f * hitDirection;
+						//Player.velocity.Y = -3f;
 						OnBlock();
 					}
 				}
@@ -341,19 +349,20 @@ namespace CombatTweaks
 				if (hasShield && parryTimer == 0)
 				{
 					modifiers.DisableSound();
+					modifiers.KnockbackImmunityEffectiveness *= 75f;
 					//	Potent Shield Guarding.
 					if (potentGuarding && canPotentGuard && Player.statMana >= damage - Player.statDefense)
 					{
-						Player.velocity.X = 5f * hitDirection;
-						Player.velocity.Y = -3f;
+						//Player.velocity.X = 5f * hitDirection;
+						//Player.velocity.Y = -3f;
 						Player.statMana -= damage - Player.statDefense;
 						OnPotentBlockShield();
 					}
 					//	No Mana left to Potently Shield Guard.
 					else
 					{
-						Player.velocity.X = 5f * hitDirection;
-						Player.velocity.Y = -3f;
+						//Player.velocity.X = 5f * hitDirection;
+						//Player.velocity.Y = -3f;
 						OnBlockShield();
 					}
 				}
@@ -396,7 +405,8 @@ namespace CombatTweaks
 		{
 			if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBlock)
 			{
-				SoundEngine.PlaySound(Block, Player.position);
+				//SoundEngine.PlaySound(Block, Player.position);
+				SoundEngine.PlaySound(SoundID.Dig with {Pitch = -0.50f, Volume = 1f}, Player.position);
 			}
 			guardingCooldown = BlockingConfig.Instance.guardingCooldown;
 		}
@@ -406,7 +416,8 @@ namespace CombatTweaks
 			Player.immuneTime = BlockingConfig.Instance.blockingImmuneTime;
 			if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBlock)
 			{
-				SoundEngine.PlaySound(Block, Player.position);
+				//SoundEngine.PlaySound(Block, Player.position);
+				SoundEngine.PlaySound(SoundID.Dig with {Pitch = -0.50f, Volume = 1f}, Player.position);
 			}
 			guardingCooldown = BlockingConfig.Instance.guardingCooldown;
 		}
@@ -414,7 +425,8 @@ namespace CombatTweaks
 		{
 			if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBlockShieldBroken)
 			{
-				SoundEngine.PlaySound(BlockShield with {Pitch = +0.25f, Volume = 1f}, Player.position);
+				//SoundEngine.PlaySound(BlockShield with {Pitch = +0.25f, Volume = 1f}, Player.position);
+				SoundEngine.PlaySound(SoundID.Item53 with {Pitch = -0.50f, Volume = 1f}, Player.position);
 			}
 			guardingCooldown = BlockingConfig.Instance.guardingCooldown;
 		}
@@ -422,7 +434,8 @@ namespace CombatTweaks
 		{
 			if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBlockShield)
 			{
-				SoundEngine.PlaySound(BlockShield, Player.position);
+				//SoundEngine.PlaySound(BlockShield, Player.position);
+				SoundEngine.PlaySound(SoundID.Item53 with {Pitch = -0.75f, Volume = 1f}, Player.position);
 			}
 			Player.immune = true;
 			Player.immuneTime = BlockingConfig.Instance.blockingImmuneTime;
@@ -432,7 +445,8 @@ namespace CombatTweaks
 		{
 			if (CombatTweaksConfigClient.Instance.enableSoundsParrying)
 			{
-				SoundEngine.PlaySound(Parry, Player.position);
+				//SoundEngine.PlaySound(Parry, Player.position);
+				SoundEngine.PlaySound(SoundID.DD2_SkeletonHurt with {Pitch = -0.50f, Volume = 1f}, Player.position);
 			}
 			if (CombatTweaksConfigClient.Instance.enableScreenshakeParrying)
 			{
