@@ -125,7 +125,8 @@ namespace CombatTweaks
 			{
 				if (CombatTweaksConfigClient.Instance.enableSoundsGuardingRaise)
 				{
-					SoundEngine.PlaySound(GuardRaise, Player.position);
+					//SoundEngine.PlaySound(GuardRaise, Player.position);
+					SoundEngine.PlaySound(SoundID.Dig with {Pitch = +1.50f, Volume = 0.25f}, Player.position);
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeGuarding)
 				{
@@ -137,7 +138,8 @@ namespace CombatTweaks
 				guardTimer = 0;
 				if (CombatTweaksConfigClient.Instance.enableSoundsGuardingLower)
 				{
-					SoundEngine.PlaySound(GuardLower, Player.position);
+					//SoundEngine.PlaySound(GuardLower, Player.position);
+					SoundEngine.PlaySound(SoundID.Dig with {Pitch = +1.25f, Volume = 0.25f}, Player.position);
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeGuarding)
 				{
@@ -149,7 +151,8 @@ namespace CombatTweaks
 			{
 				if (CombatTweaksConfigClient.Instance.enableSoundsGuardingBash)
 				{
-					SoundEngine.PlaySound(GuardBash, Player.position);
+					//SoundEngine.PlaySound(GuardBash, Player.position);
+					SoundEngine.PlaySound(SoundID.Item1 with {Pitch = -1f, Volume = 1f}, Player.position);
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeGuardingGuardBash)
 				{
@@ -186,7 +189,8 @@ namespace CombatTweaks
 					parryCounter = true;
 					if (CombatTweaksConfigClient.Instance.enableSoundsParrying)
 					{
-						SoundEngine.PlaySound(Parry, Player.position);
+						//SoundEngine.PlaySound(Parry, Player.position);
+						SoundEngine.PlaySound(SoundID.Tink with {Pitch = +0.50f, Volume = 1f}, Player.position);
 					}
 				}
 				else
@@ -194,7 +198,8 @@ namespace CombatTweaks
 					parryCounter = false;
 					if (CombatTweaksConfigClient.Instance.enableSoundsParryingAttempt)
 					{
-						SoundEngine.PlaySound(ParryAttempt, Player.position);
+						//SoundEngine.PlaySound(ParryAttempt, Player.position);
+						SoundEngine.PlaySound(SoundID.Item1 with {Pitch = +0.50f, Volume = 1f}, Player.position);
 					}
 				}
 			}
@@ -210,7 +215,8 @@ namespace CombatTweaks
 			{
 				if (CombatTweaksConfigClient.Instance.enableSoundsParryingAttempt)
 				{
-					SoundEngine.PlaySound(ParryAttempt, Player.position);
+					//SoundEngine.PlaySound(ParryAttempt, Player.position);
+					SoundEngine.PlaySound(SoundID.Item1 with {Pitch = +0.50f, Volume = 1f}, Player.position);
 				}
 				if (CombatTweaksConfigClient.Instance.enableScreenshakeParrying)
 				{
@@ -446,7 +452,7 @@ namespace CombatTweaks
 			if (CombatTweaksConfigClient.Instance.enableSoundsParrying)
 			{
 				//SoundEngine.PlaySound(Parry, Player.position);
-				SoundEngine.PlaySound(SoundID.DD2_SkeletonHurt with {Pitch = -0.50f, Volume = 1f}, Player.position);
+				SoundEngine.PlaySound(SoundID.Tink with {Pitch = +0.50f, Volume = 1f}, Player.position);
 			}
 			if (CombatTweaksConfigClient.Instance.enableScreenshakeParrying)
 			{
