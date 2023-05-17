@@ -333,7 +333,7 @@ namespace CombatTweaks
 				if (!hasShield && parryTimer == 0)
 				{
 					modifiers.DisableSound();
-					modifiers.KnockbackImmunityEffectiveness *= 25f;
+					modifiers.Knockback *= 0.75f;
 					//	Potent Guarding
 					if (potentGuarding && canPotentGuard && !BlockingConfig.Instance.potentGuardingRequiresShield && Player.statMana >= damage - Player.statDefense)
 					{
@@ -355,7 +355,7 @@ namespace CombatTweaks
 				if (hasShield && parryTimer == 0)
 				{
 					modifiers.DisableSound();
-					modifiers.KnockbackImmunityEffectiveness *= 75f;
+					modifiers.Knockback *= 0.25f;
 					//	Potent Shield Guarding.
 					if (potentGuarding && canPotentGuard && Player.statMana >= damage - Player.statDefense)
 					{
