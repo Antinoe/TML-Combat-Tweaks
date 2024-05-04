@@ -1,7 +1,0 @@
-displayName = Combat Tweaks
-author =  Antinous
-version = 1.0
-homepage = https://github.com/Antinoe/TML-Combat-Tweaks
-hideCode = false
-hideResources = false
-includeSource = true
