@@ -1,0 +1,117 @@
+Configs: {
+	ParryingConfig: {
+		ParryingToggle: {
+			Tooltip: Should clients be allowed to parry?
+			Label: "[i:FeralClaws] Parrying"
+		}
+
+		MasterSwitch: {
+			Tooltip: Turn this off to disable every feature below.
+			Label: "[i:Lever] Master Switch"
+		}
+
+		Headers.ParryingOptions: "[i:FeralClaws]Parrying Options[i:FeralClaws]"
+		DisplayName: Parrying Config
+	}
+
+	GuardingConfig: {
+		ShieldThorns: {
+			Tooltip: What percentage of Thorns should shields have?
+			Label: "[i:HeroShield] Shield Thorns"
+		}
+
+		ShieldGuardingDamageMultiplier: {
+			Tooltip: How much more damage should be dealt to Mana while a shield is raised?
+			Label: "[i:TitanGlove][i:ObsidianShield][i:ManaCrystal] Shield-Guarding Damage Multiplier"
+		}
+
+		GuardingDamageReduction: {
+			Tooltip:
+				'''
+				How effective should guarding be?
+				(A value of 0.25 reduces 25% of damage.)
+				'''
+			Label: "[i:TitanGlove][i:CobaltShield] Guarding Damage Reduction"
+		}
+
+		GuardingToggle: {
+			Tooltip: Should clients be allowed to guard?
+			Label: "[i:TitanGlove] Guarding"
+		}
+
+		MasterSwitch: {
+			Tooltip: Turn this off to disable every feature below.
+			Label: "[i:Lever] Master Switch"
+		}
+
+		Headers.GuardingOptions: "[i:TitanGlove]Guarding Options[i:TitanGlove]"
+		DisplayName: Guarding Config
+	}
+
+	DefenseConfig: {
+		ImmuneTimeSubtraction: {
+			Tooltip:
+				'''
+				Whenever Immunity Frames are activated, this kicks in and removes the configured value every tick.
+				(A value of 1 means half the Immune Time.)
+				'''
+			Label: "[i:CrossNecklace] Immunity Frame Subtraction"
+		}
+
+		NoImmuneTime: {
+			Tooltip: Should Immune Time be disabled entirely?
+			Label: "[i:CrossNecklace] No Immunity Frames"
+		}
+
+		MinDamageImmunity: {
+			Tooltip:
+				'''
+				Should clients be completely protected from minimal damage?
+				(Damage that is no more than 1.)
+				'''
+			Label: "[i:PaladinsShield] Minimum Damage Invulnerability"
+		}
+
+		DefenseMultiplier: {
+			Tooltip:
+				'''
+				Multiplies the Defense points of every client.
+				(10 Defense, with a value of 2, results in 20 Defense.)
+				(Use this if Defense Effectiveness is hindered by other mods.)
+				'''
+			Label: "[i:ObsidianShield] Defense Multiplier"
+		}
+
+		DefenseEffectiveness: {
+			Tooltip:
+				'''
+				Modify the effectiveness of Defense.
+				(A value of 2 makes Defense twice as effective.)
+				'''
+			Label: "[i:ObsidianShield] Defense Effectiveness"
+		}
+
+		InitialDamageReduction: {
+			Tooltip:
+				'''
+				Modify how much Damage Reduction clients have by default.
+				(A value of 0.75 reduces damage by 75%.)
+				'''
+			Label: "[i:CobaltShield] Initial Damage Reduction"
+		}
+
+		MasterSwitch: {
+			Tooltip: Turn this off to disable every feature below.
+			Label: "[i:Lever] Master Switch"
+		}
+
+		Headers.DefenseOptions: "[i:PaladinsShield]Defense Options[i:PaladinsShield]"
+		DisplayName: Defense Config
+	}
+}
+
+Keybinds: {
+	RevUp.DisplayName: Rev Up
+	Parry.DisplayName: Parry
+	Guard.DisplayName: Guard
+}

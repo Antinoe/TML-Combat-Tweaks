@@ -1,4 +1,1 @@
-Temp Desc.
-
--Counter Damage.
--Armor Slider.
+A plethora of configurable combat-oriented features for Terraria.
