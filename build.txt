@@ -1,5 +1,5 @@
 displayName = Combat Tweaks
 author = Antinous
-version = 0.1
+version = 0.2
 homepage = https://github.com/Antinoe/TML-Combat-Tweaks
 includeSource = true

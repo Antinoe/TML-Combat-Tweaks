@@ -59,8 +59,21 @@ Configs: {
 		}
 
 		NoImmuneTime: {
-			Tooltip: Should Immune Time be disabled entirely?
+			Tooltip:
+				'''
+				Should Immune Time be disabled entirely?
+				(I'd strongly suggest pairing this with NPC Attack Cooldowns.)
+				'''
 			Label: "[i:CrossNecklace] No Immunity Frames"
+		}
+
+		NPCAttackCooldowns: {
+			Tooltip:
+				'''
+				Should monsters have attack cooldowns similar to players?
+				(I'd recommend pairing this with No Immunity Frames.)
+				'''
+			Label: "[i:IronBroadsword] NPC Attack Cooldowns"
 		}
 
 		MinDamageImmunity: {

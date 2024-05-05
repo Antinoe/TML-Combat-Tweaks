@@ -54,8 +54,14 @@ namespace CombatTweaks.Common.Configs
 		public bool MinDamageImmunity;
 		
 		[BackgroundColor(255, 255, 155)]
+		[Label("[i:IronBroadsword] NPC Attack Cooldowns")]
+		[Tooltip("Should monsters have attack cooldowns similar to players?\n(I'd recommend pairing this with No Immunity Frames.)")]
+		[DefaultValue(false)]
+		public bool NPCAttackCooldowns;
+		
+		[BackgroundColor(255, 255, 155)]
 		[Label("[i:CrossNecklace] No Immunity Frames")]
-		[Tooltip("Should Immune Time be disabled entirely?")]
+		[Tooltip("Should Immune Time be disabled entirely?\n(I'd strongly suggest pairing this with NPC Attack Cooldowns.)")]
 		[DefaultValue(false)]
 		public bool NoImmuneTime;
 		
