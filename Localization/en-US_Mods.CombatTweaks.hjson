@@ -130,6 +130,15 @@ Configs: {
 			Label: "[i:CrossNecklace] NPC Immunity Frames"
 			Tooltip: Should monsters have Immune Time similar to players?
 		}
+
+		LogicalContactDamage: {
+			Label: "[i:GuideVoodooDoll] Logical Contact Damage"
+			Tooltip:
+				'''
+				Should monsters deal no damage when standing still?
+				(Realistically, yes.)
+				'''
+		}
 	}
 
 	WeaponConfig: {
