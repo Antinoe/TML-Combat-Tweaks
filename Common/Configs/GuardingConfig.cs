@@ -18,6 +18,12 @@ namespace CombatTweaks.Common.Configs{
 		[DefaultValue(true)]
 		public bool MasterSwitch;
 		
+		[BackgroundColor(255, 155, 155)]
+		[Label("[i:SquireShield] Shield Slot")]
+		[Tooltip("Should clients have an accessory slot dedicated to shields?")]
+		[DefaultValue(true)]
+		public bool ShieldSlotToggle;
+		
 		[BackgroundColor(155, 155, 255)]
 		[Label("[i:TitanGlove] Guarding")]
 		[Tooltip("Should clients be allowed to guard?")]

@@ -20,13 +20,14 @@ namespace CombatTweaks.Common.Players{
 		PunchCameraModifier shakeStrong => new PunchCameraModifier(Main.LocalPlayer.Center, (Main.rand.NextFloat() * (MathHelper.TwoPi)).ToRotationVector2(), 2.5f, 10f, 10, 15f, "shakeStrong");
 		public override void ProcessTriggers(TriggersSet triggersSet){
 			var player = Player;
-			if(CombatTweaksKeybinds.Dodge.JustPressed && GuardingConfig.Instance.MasterSwitch && GuardingConfig.Instance.GuardingToggle){
+			if(CombatTweaksKeybinds.Dodge.JustPressed && DodgingConfig.Instance.MasterSwitch && DodgingConfig.Instance.DodgingToggle){
 				bool controls = (player.controlLeft || player.controlRight);
 				bool canDodge = (!player.mount.Active && dodgingTime == 0 && dodgingCooldown == 0 && player.velocity.Y == 0 && controls);
 				if(canDodge){
 					dodgingTime = 40;
+					dodgingTime = dodgingCooldown = 80;
 					Main.instance.CameraModifiers.Add(shakeWeak);
-					SoundEngine.PlaySound(SoundID.Item1 with {Pitch=1f,Volume=0.5f}, player.position);
+					SoundEngine.PlaySound(SoundID.Item1 with {Pitch=1f,Volume=0.75f}, player.position);
 					if(player.direction == 1){player.velocity.X += 5f;}
 					if(player.direction == -1){player.velocity.X -= 5f;}
 				}

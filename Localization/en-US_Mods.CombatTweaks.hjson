@@ -46,6 +46,11 @@ Configs: {
 
 		Headers.GuardingOptions: "[i:TitanGlove]Guarding Options[i:TitanGlove]"
 		DisplayName: Guarding Config
+
+		ShieldSlotToggle: {
+			Label: "[i:SquireShield] Shield Slot"
+			Tooltip: Should clients have an accessory slot dedicated to shields?
+		}
 	}
 
 	DefenseConfig: {
@@ -138,6 +143,21 @@ Configs: {
 				Should axes deal more damage than swords?
 				(The downside is that they will swing slower.)
 				'''
+		}
+	}
+
+	DodgingConfig: {
+		DisplayName: Dodging Config
+		Headers.DodgingOptions: Dodging Options Header
+
+		MasterSwitch: {
+			Label: "[i:Lever] Master Switch"
+			Tooltip: Turn this off to disable every feature below.
+		}
+
+		DodgingToggle: {
+			Label: "[i:Tabi] Dodging"
+			Tooltip: Should clients be allowed to perform a dodge?
 		}
 	}
 }

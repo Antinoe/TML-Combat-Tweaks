@@ -19,7 +19,10 @@ namespace CombatTweaks.Common.Players{
 			if(item.shieldSlot > 0){return true;}
 			return false;
 		}
-		public override bool IsEnabled(){return true;}
+		public override bool IsEnabled(){
+			if(GuardingConfig.Instance.MasterSwitch && GuardingConfig.Instance.ShieldSlotToggle){return true;}
+			return false;
+		}
 		public override bool IsVisibleWhenNotEnabled(){return !IsEmpty;}
 		public override string FunctionalTexture => "Terraria/Images/Item_" + ItemID.SquireShield;
 		public override void OnMouseHover(AccessorySlotType context){
