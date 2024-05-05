@@ -121,10 +121,30 @@ Configs: {
 		Headers.DefenseOptions: "[i:PaladinsShield]Defense Options[i:PaladinsShield]"
 		DisplayName: Defense Config
 	}
+
+	WeaponConfig: {
+		DisplayName: Weapon Config
+		Headers.WeaponOptions: Weapon Options Header
+
+		MasterSwitch: {
+			Label: "[i:Lever] Master Switch"
+			Tooltip: Turn this off to disable every feature below.
+		}
+
+		IncreasedToolDamage: {
+			Label: "[i:IronAxe] Increased Axe Damage"
+			Tooltip:
+				'''
+				Should axes deal more damage than swords?
+				(The downside is that they will swing slower.)
+				'''
+		}
+	}
 }
 
 Keybinds: {
 	RevUp.DisplayName: Rev Up
 	Parry.DisplayName: Parry
 	Guard.DisplayName: Guard
+	Dodge.DisplayName: Dodge
 }

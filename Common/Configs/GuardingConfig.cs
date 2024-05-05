@@ -5,10 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
-namespace CombatTweaks.Common.Configs
-{
-	public class GuardingConfig : ModConfig
-	{
+namespace CombatTweaks.Common.Configs{
+	public class GuardingConfig : ModConfig{
 		public static GuardingConfig Instance;
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 		

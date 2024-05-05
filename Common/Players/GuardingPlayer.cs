@@ -11,8 +11,8 @@ using CombatTweaks.Common.Systems;
 
 namespace CombatTweaks.Common.Players{
 	public class GuardingPlayer : ModPlayer{
-		public bool isGuarding = false;
-		public bool isGuardingWithShield = false;
+		//public bool isGuarding = false;
+		//public bool isGuardingWithShield = false;
 		public int guardingTime = 0;
 		public bool hasShield = false;
 		public bool hasGlove = false;
@@ -33,10 +33,9 @@ namespace CombatTweaks.Common.Players{
 				SoundEngine.PlaySound(SoundID.Dig with {Pitch=1.50f,Volume=0.25f}, player.position);
 			}
 			if(CombatTweaksKeybinds.Guard.Current && GuardingConfig.Instance.MasterSwitch && GuardingConfig.Instance.GuardingToggle){
-				isGuarding=true;guardingTime++;
+				guardingTime++;
 			}
 			if(CombatTweaksKeybinds.Guard.JustReleased){
-				isGuarding=false;
 				guardingTime=0;
 				if(GuardingConfig.Instance.MasterSwitch && GuardingConfig.Instance.GuardingToggle){
 					Main.instance.CameraModifiers.Add(shakeWeak);
@@ -50,13 +49,13 @@ namespace CombatTweaks.Common.Players{
 		}
 		public override void PostUpdateMiscEffects(){
 			var player = Player;
-			if(isGuarding){player.velocity.X *= 0.95f;}
-			if(isGuarding && hasShield){player.thorns += GuardingConfig.Instance.ShieldThorns;}
+			if(guardingTime > 0){player.velocity.X *= 0.95f;}
+			if(guardingTime > 0 && hasShield){player.thorns += GuardingConfig.Instance.ShieldThorns;}
 		}
 		public override void ModifyHurt(ref Player.HurtModifiers modifiers){
 			var player = Player;
 			var damage = (int)modifiers.FinalDamage.Flat;
-			if(isGuarding){
+			if(guardingTime > 0){
 				modifiers.DisableSound();
 				SoundEngine.PlaySound(SoundID.Dig with {Pitch=1f,Volume=1f}, player.position);
 				modifiers.FinalDamage *= 1f - GuardingConfig.Instance.GuardingDamageReduction;
@@ -65,7 +64,7 @@ namespace CombatTweaks.Common.Players{
 		public override bool FreeDodge(Player.HurtInfo info){
 			var player = Player;
 			ParryingPlayer pp = player.GetModPlayer<ParryingPlayer>();
-			if(isGuarding && hasShield && pp.parryingTime == 0){
+			if(guardingTime > 0 && hasShield && pp.parryingTime == 0){
 				if(player.statMana > 0 && player.statMana >= (info.Damage * GuardingConfig.Instance.ShieldGuardingDamageMultiplier)){
 					SoundEngine.PlaySound(SoundID.Tink with {Pitch=-0.65f,Volume=1f}, player.position);
 					player.statMana -= (info.Damage * GuardingConfig.Instance.ShieldGuardingDamageMultiplier);

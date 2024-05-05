@@ -5,10 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
-namespace CombatTweaks.Common.Configs
-{
-	public class ParryingConfig : ModConfig
-	{
+namespace CombatTweaks.Common.Configs{
+	public class ParryingConfig : ModConfig{
 		public static ParryingConfig Instance;
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 		
