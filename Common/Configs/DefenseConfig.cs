@@ -28,7 +28,7 @@ namespace CombatTweaks.Common.Configs{
 		public float InitialDamageReduction;
 		
 		[BackgroundColor(255, 155, 255)]
-		[Label("[i:ObsidianShield] Defense Effectiveness")]
+		[Label("[i:IronChainmail] Defense Effectiveness")]
 		[Tooltip("Modify the effectiveness of Defense.\n(A value of 2 makes Defense twice as effective.)")]
 		[Range(0.25f,5f)]
 		[Increment(0.25f)]
@@ -37,7 +37,7 @@ namespace CombatTweaks.Common.Configs{
 		public float DefenseEffectiveness;
 		
 		[BackgroundColor(255, 155, 255)]
-		[Label("[i:ObsidianShield] Defense Multiplier")]
+		[Label("[i:GoldChainmail] Defense Multiplier")]
 		[Tooltip("Multiplies the Defense points of every client.\n(10 Defense, with a value of 2, results in 20 Defense.)\n(Use this if Defense Effectiveness is hindered by other mods.)")]
 		[Range(1,5)]
 		[Increment(1)]
@@ -50,12 +50,6 @@ namespace CombatTweaks.Common.Configs{
 		[Tooltip("Should clients be completely protected from minimal damage?\n(Damage that is no more than 1.)")]
 		[DefaultValue(false)]
 		public bool MinDamageImmunity;
-		
-		[BackgroundColor(255, 255, 155)]
-		[Label("[i:IronBroadsword] NPC Attack Cooldowns")]
-		[Tooltip("Should monsters have attack cooldowns similar to players?\n(I'd recommend pairing this with No Immunity Frames.)")]
-		[DefaultValue(false)]
-		public bool NPCAttackCooldowns;
 		
 		[BackgroundColor(255, 255, 155)]
 		[Label("[i:CrossNecklace] No Immunity Frames")]
@@ -71,5 +65,17 @@ namespace CombatTweaks.Common.Configs{
 		[Slider]
 		[DefaultValue(0)]
 		public int ImmuneTimeSubtraction;
+		
+		[BackgroundColor(255, 255, 155)]
+		[Label("[i:IronBroadsword] NPC Attack Cooldowns")]
+		[Tooltip("Should monsters have attack cooldowns similar to players?\n(I'd recommend pairing this with No Immunity Frames.)")]
+		[DefaultValue(false)]
+		public bool NPCAttackCooldowns;
+		
+		[BackgroundColor(255, 255, 155)]
+		[Label("[i:CrossNecklace] NPC Immunity Frames")]
+		[Tooltip("Should monsters have Immune Time similar to players?")]
+		[DefaultValue(false)]
+		public bool NPCImmuneTime;
 	}
 }

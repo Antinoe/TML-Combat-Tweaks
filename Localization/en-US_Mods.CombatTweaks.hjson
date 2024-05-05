@@ -125,6 +125,11 @@ Configs: {
 
 		Headers.DefenseOptions: "[i:PaladinsShield]Defense Options[i:PaladinsShield]"
 		DisplayName: Defense Config
+
+		NPCImmuneTime: {
+			Label: "[i:CrossNecklace] NPC Immunity Frames"
+			Tooltip: Should monsters have Immune Time similar to players?
+		}
 	}
 
 	WeaponConfig: {
@@ -148,7 +153,7 @@ Configs: {
 
 	DodgingConfig: {
 		DisplayName: Dodging Config
-		Headers.DodgingOptions: Dodging Options Header
+		Headers.DodgingOptions: "[i:Tabi]Dodging Options[i:Tabi]"
 
 		MasterSwitch: {
 			Label: "[i:Lever] Master Switch"
