@@ -5,10 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CombatTweaks.Common.Configs;
 
-namespace CombatTweaks.Common.GlobalNPCs
-{
-	public class NPCImmuneTime : GlobalNPC
-	{
+namespace CombatTweaks.Common.GlobalNPCs{
+	public class NPCImmuneTime : GlobalNPC{
 		public override bool InstancePerEntity => true;
 		//public bool immune = false;
 		public int immuneTime = 0;

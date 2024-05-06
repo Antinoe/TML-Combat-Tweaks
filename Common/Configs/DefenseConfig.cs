@@ -83,5 +83,11 @@ namespace CombatTweaks.Common.Configs{
 		[Tooltip("Should monsters deal no damage when standing still?\n(Realistically, yes.)")]
 		[DefaultValue(false)]
 		public bool LogicalContactDamage;
+		
+		[BackgroundColor(255, 0, 0)]
+		[Label("No Passive Contact Damage Blacklist")]
+		public List<NPCDefinition> noPassiveContactDamageBlacklist = new List<NPCDefinition>{
+			new NPCDefinition(NPCID.RockGolem)
+		};
 	}
 }

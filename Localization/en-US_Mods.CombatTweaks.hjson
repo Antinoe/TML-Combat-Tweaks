@@ -92,6 +92,11 @@ Configs: {
 				(Realistically, yes.)
 				'''
 		}
+
+		noPassiveContactDamageBlacklist: {
+			Label: No Passive Contact Damage Blacklist
+			Tooltip: ""
+		}
 	}
 
 	DodgingConfig: {
