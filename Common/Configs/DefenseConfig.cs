@@ -66,12 +66,6 @@ namespace CombatTweaks.Common.Configs{
 		[DefaultValue(0)]
 		public int ImmuneTimeSubtraction;
 		
-		[BackgroundColor(255, 0, 0)]
-		[Label("[i:IronBroadsword] NPC Attack Cooldowns")]
-		[Tooltip("Should monsters have attack cooldowns similar to players?\n(I'd recommend pairing this with No Immunity Frames.)")]
-		[DefaultValue(false)]
-		public bool NPCAttackCooldowns;
-		
 		[BackgroundColor(255, 255, 155)]
 		[Label("[i:CrossNecklace] NPC Immunity Frames")]
 		[Tooltip("Should monsters have Immune Time similar to players?")]
@@ -79,7 +73,13 @@ namespace CombatTweaks.Common.Configs{
 		public bool NPCImmuneTime;
 		
 		[BackgroundColor(255, 0, 0)]
-		[Label("[i:GuideVoodooDoll] Logical Contact Damage")]
+		[Label("[i:IronBroadsword] NPC Attack Cooldowns")]
+		[Tooltip("Should monsters have attack cooldowns similar to players?\n(I'd recommend pairing this with No Immunity Frames.)")]
+		[DefaultValue(false)]
+		public bool NPCAttackCooldowns;
+		
+		[BackgroundColor(255, 0, 0)]
+		[Label("[i:GuideVoodooDoll] Disable Passive Contact Damage")]
 		[Tooltip("Should monsters deal no damage when standing still?\n(Realistically, yes.)")]
 		[DefaultValue(false)]
 		public bool LogicalContactDamage;

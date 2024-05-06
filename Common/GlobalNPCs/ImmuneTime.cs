@@ -37,12 +37,12 @@ namespace CombatTweaks.Common.GlobalNPCs
 			return base.CanBeHitByProjectile(npc,projectile);
 		}
 		public override void OnHitByItem(NPC npc, Player player, Item item, NPC.HitInfo hit, int damageDone){
-			if(immuneTime == 0){
+			if(immuneTime == 0 && DefenseConfig.Instance.MasterSwitch && DefenseConfig.Instance.NPCImmuneTime){
 				immuneTime = 40;
 			}
 		}
 		public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone){
-			if(immuneTime == 0){
+			if(immuneTime == 0 && DefenseConfig.Instance.MasterSwitch && DefenseConfig.Instance.NPCImmuneTime){
 				immuneTime = 40;
 			}
 		}
