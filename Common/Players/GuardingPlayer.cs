@@ -44,8 +44,8 @@ namespace CombatTweaks.Common.Players{
 			}
 		}
 		public override void PostUpdate(){
-			if (guardingTime >= 1){Player.bodyFrame.Y = Player.bodyFrame.Height * 10;}
-			if (guardingTime >= 10){Player.bodyFrame.Y = Player.bodyFrame.Height * 11;}
+			if(guardingTime >= 1){Player.bodyFrame.Y = Player.bodyFrame.Height * 10;}
+			if(guardingTime >= 10){Player.bodyFrame.Y = Player.bodyFrame.Height * 11;}
 		}
 		public override void PostUpdateMiscEffects(){
 			var player = Player;
@@ -57,8 +57,13 @@ namespace CombatTweaks.Common.Players{
 			var damage = (int)modifiers.FinalDamage.Flat;
 			if(guardingTime > 0){
 				modifiers.DisableSound();
-				SoundEngine.PlaySound(SoundID.Dig with {Pitch=1f,Volume=1f}, player.position);
 				modifiers.FinalDamage *= 1f - GuardingConfig.Instance.GuardingDamageReduction;
+			}
+		}
+		public override void OnHurt(Player.HurtInfo info){
+			var player = Player;
+			if(guardingTime > 0){
+				SoundEngine.PlaySound(SoundID.Dig with {Pitch=1f,Volume=1f}, player.position);
 			}
 		}
 		public override bool FreeDodge(Player.HurtInfo info){

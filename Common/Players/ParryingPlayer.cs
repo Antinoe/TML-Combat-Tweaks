@@ -30,10 +30,10 @@ namespace CombatTweaks.Common.Players{
 			}
 		}
 		public override void PostUpdate(){
-			if (parryingTime >= 1){Player.bodyFrame.Y = Player.bodyFrame.Height * 1;}
-			if (parryingTime >= 4){Player.bodyFrame.Y = Player.bodyFrame.Height * 2;}
-			if (parryingTime >= 7){Player.bodyFrame.Y = Player.bodyFrame.Height * 3;}
-			if (parryingTime >= 10){Player.bodyFrame.Y = Player.bodyFrame.Height * 4;}
+			if(parryingTime >= 1){Player.bodyFrame.Y = Player.bodyFrame.Height * 1;}
+			if(parryingTime >= 4){Player.bodyFrame.Y = Player.bodyFrame.Height * 2;}
+			if(parryingTime >= 7){Player.bodyFrame.Y = Player.bodyFrame.Height * 3;}
+			if(parryingTime >= 10){Player.bodyFrame.Y = Player.bodyFrame.Height * 4;}
 		}
 		public override void PostUpdateMiscEffects(){
 			if(parryingTime > 0){parryingTime--;}
@@ -44,6 +44,7 @@ namespace CombatTweaks.Common.Players{
 			if(parryingTime > 0){
 				player.immune = true;
 				player.immuneTime = 30;
+				SoundEngine.PlaySound(SoundID.Dig with {Pitch=1.5f,Volume=0.25f}, player.position);
 				return true;
 			}
 			return base.FreeDodge(info);
