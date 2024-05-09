@@ -49,6 +49,27 @@ namespace CombatTweaks.Common.Configs{
 		public int ShieldGuardingDamageMultiplier;
 		
 		[BackgroundColor(155, 155, 255)]
+		[Label("[i:ManaCrystal][i:IronChainmail][i:SquireShield] Mana Guarding Behavior")]
+		[Tooltip("1 - Guarding\n2 - Guarding with Defense\n3 - Guarding with Shield\n4 - Defense\n5 - Shield")]
+		[Range(1,5)]
+		[Increment(1)]
+		[Slider]
+		[DefaultValue(3)]
+		public int ManaGuardingBehavior;
+		
+		//	Not implemented yet.
+		/*
+		[BackgroundColor(155, 155, 255)]
+		[Label("[i:ManaCrystal] Mana Regen Delay")]
+		[Tooltip("How long should Mana Regeneration be disabled after absorbing damage?")]
+		[Range(0,360)]
+		[Increment(30)]
+		[Slider]
+		[DefaultValue(60)]
+		public int ManaRegenDelay;
+		*/
+		
+		[BackgroundColor(155, 155, 255)]
 		[Label("[i:HeroShield] Shield Thorns")]
 		[Tooltip("What percentage of Thorns should shields have?")]
 		[Range(0f,1f)]

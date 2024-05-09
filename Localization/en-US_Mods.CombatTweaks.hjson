@@ -147,6 +147,18 @@ Configs: {
 			Tooltip: How much more damage should be dealt to Mana while a shield is raised?
 		}
 
+		ManaGuardingBehavior: {
+			Label: "[i:ManaCrystal][i:IronChainmail][i:SquireShield] Mana Guarding Behavior"
+			Tooltip:
+				'''
+				1 - Guarding
+				2 - Guarding with Defense
+				3 - Guarding with Shield
+				4 - Defense
+				5 - Shield
+				'''
+		}
+
 		ShieldThorns: {
 			Label: "[i:HeroShield] Shield Thorns"
 			Tooltip: What percentage of Thorns should shields have?

@@ -14,6 +14,7 @@ namespace CombatTweaks.Common.Players{
 		//public bool isGuarding = false;
 		//public bool isGuardingWithShield = false;
 		public int guardingTime = 0;
+		public int manaRegenDelay = 0;
 		public bool hasShield = false;
 		public bool hasGlove = false;
 		public bool hasBoot = false;
@@ -69,10 +70,17 @@ namespace CombatTweaks.Common.Players{
 		public override bool FreeDodge(Player.HurtInfo info){
 			var player = Player;
 			ParryingPlayer pp = player.GetModPlayer<ParryingPlayer>();
-			if(guardingTime > 0 && hasShield && pp.parryingTime == 0){
+			bool manaGuardingBehavior1 = (GuardingConfig.Instance.ManaGuardingBehavior == 1 && guardingTime > 0 && pp.parryingTime == 0);
+			bool manaGuardingBehavior2 = (GuardingConfig.Instance.ManaGuardingBehavior == 2 && guardingTime > 0 && pp.parryingTime == 0 && player.statDefense > 0);
+			bool manaGuardingBehavior3 = (GuardingConfig.Instance.ManaGuardingBehavior == 3 && guardingTime > 0 && pp.parryingTime == 0 && hasShield);
+			bool manaGuardingBehavior4 = (GuardingConfig.Instance.ManaGuardingBehavior == 4 && player.statDefense > 0);
+			bool manaGuardingBehavior5 = (GuardingConfig.Instance.ManaGuardingBehavior == 5 && hasShield);
+			if(manaGuardingBehavior1 || manaGuardingBehavior2 || manaGuardingBehavior3 || manaGuardingBehavior4 || manaGuardingBehavior5){
 				if(player.statMana > 0 && player.statMana >= (info.Damage * GuardingConfig.Instance.ShieldGuardingDamageMultiplier)){
 					SoundEngine.PlaySound(SoundID.Tink with {Pitch=-0.65f,Volume=1f}, player.position);
 					player.statMana -= (info.Damage * GuardingConfig.Instance.ShieldGuardingDamageMultiplier);
+					//	Not implemented yet.
+					//if(GuardingConfig.Instance.ManaRegenDelay > 0){manaRegenDelay = GuardingConfig.Instance.ManaRegenDelay}
 					player.immune = true;
 					player.immuneTime = 40;
 					return true;

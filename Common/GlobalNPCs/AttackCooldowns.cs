@@ -5,10 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CombatTweaks.Common.Configs;
 
-namespace CombatTweaks.Common.GlobalNPCs
-{
-	public class NPCAttackCooldowns : GlobalNPC
-	{
+namespace CombatTweaks.Common.GlobalNPCs{
+	public class NPCAttackCooldowns : GlobalNPC{
 		public override bool InstancePerEntity => true;
 		public int attackCooldown = 0;
 		public override void AI(NPC npc){
@@ -36,8 +34,7 @@ namespace CombatTweaks.Common.GlobalNPCs
 		}
 	}
 	//	I know this isn't in a `GlobalProjectiles` folder, but it's related to Attack Cooldowns anyway.
-	public class ProjectileAttackCooldowns : GlobalProjectile
-	{
+	public class ProjectileAttackCooldowns : GlobalProjectile{
 		public override bool InstancePerEntity => true;
 		public int attackCooldown = 0;
 		public override void AI(Projectile projectile){if(attackCooldown > 0){attackCooldown--;}}
