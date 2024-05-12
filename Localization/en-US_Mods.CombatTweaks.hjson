@@ -97,6 +97,15 @@ Configs: {
 			Label: No Passive Contact Damage Blacklist
 			Tooltip: ""
 		}
+
+		ExtraLifeMode: {
+			Label: "[i:LifeCrystal] Extra Life Mode"
+			Tooltip:
+				'''
+				Should the hearts you have count as Extra Lives?
+				(Hearts will save you from death, but will be consumed in the process.)
+				'''
+		}
 	}
 
 	DodgingConfig: {

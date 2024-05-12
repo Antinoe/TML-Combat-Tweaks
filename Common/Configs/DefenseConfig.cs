@@ -27,7 +27,7 @@ namespace CombatTweaks.Common.Configs{
 		[DefaultValue(0f)]
 		public float InitialDamageReduction;
 		
-		[BackgroundColor(255, 155, 255)]
+		[BackgroundColor(155, 255, 255)]
 		[Label("[i:IronChainmail] Defense Effectiveness")]
 		[Tooltip("Modify the effectiveness of Defense.\n(A value of 2 makes Defense twice as effective.)")]
 		[Range(0.25f,5f)]
@@ -36,7 +36,7 @@ namespace CombatTweaks.Common.Configs{
 		[DefaultValue(1f)]
 		public float DefenseEffectiveness;
 		
-		[BackgroundColor(255, 155, 255)]
+		[BackgroundColor(155, 255, 255)]
 		[Label("[i:GoldChainmail] Defense Multiplier")]
 		[Tooltip("Multiplies the Defense points of every client.\n(10 Defense, with a value of 2, results in 20 Defense.)\n(Use this if Defense Effectiveness is hindered by other mods.)")]
 		[Range(1,5)]
@@ -44,6 +44,12 @@ namespace CombatTweaks.Common.Configs{
 		[Slider]
 		[DefaultValue(1)]
 		public int DefenseMultiplier;
+		
+		[BackgroundColor(255, 200, 255)]
+		[Label("[i:LifeCrystal] Extra Life Mode")]
+		[Tooltip("Should the hearts you have count as Extra Lives?\n(Hearts will save you from death, but will be consumed in the process.)")]
+		[DefaultValue(false)]
+		public bool ExtraLifeMode;
 		
 		[BackgroundColor(255, 255, 155)]
 		[Label("[i:PaladinsShield] Minimum Damage Invulnerability")]
