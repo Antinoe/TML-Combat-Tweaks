@@ -46,6 +46,54 @@ namespace CombatTweaks.Common.Configs{
 		public int DefenseMultiplier;
 		
 		[BackgroundColor(255, 200, 255)]
+		[Label("[i:Heart] Health Pickups")]
+		[Tooltip("Should a DOOM-like Health mechanic be introduced?\n(Killing monsters with Melee weapons will cause Heart Pickups to spew out.)")]
+		[DefaultValue(false)]
+		public bool HealthPickups;
+		
+		[BackgroundColor(255, 255, 255)]
+		[Label("[i:HuntressBuckler] Armor Pickups")]
+		[Tooltip("Should DOOM-like Armor mechanics be introduced?\n(Monsters set on fire will drop Armor Shards.\nArmor Points act as extra Life and block debuffs.)")]
+		[DefaultValue(false)]
+		public bool ArmorPickups;
+		
+		[BackgroundColor(255, 255, 255)]
+		[Label("[i:TitanPotion][i:HuntressBuckler] Armor Knockback")]
+		[Tooltip("Should knockback be applied to clients that have Armor Points?\n(WARNING: The physics still need work. Enable at your own discretion.)")]
+		[DefaultValue(false)]
+		public bool ArmorKnockback;
+		
+		[BackgroundColor(255, 255, 255)]
+		[Label("[i:StoneBlock][i:HuntressBuckler] Armor Shard Amount")]
+		[Tooltip("How many Armor Points should each Armor Shard grant?")]
+		[Range(1,20)]
+		[Increment(1)]
+		[Slider]
+		[DefaultValue(2)]
+		public int ArmorPickupAmount;
+		
+		[BackgroundColor(255, 255, 255)]
+		[Label("[i:MagmaStone][i:Stopwatch][i:HuntressBuckler] Fire Timer")]
+		[Tooltip("How long should the timer be for flaming monsters to drop an Armor Shard?")]
+		[Range(30,240)]
+		[Increment(30)]
+		[Slider]
+		[DefaultValue(30)]
+		public int FireTimer;
+		
+		//	Couldn't get values past 2 working.
+		/*
+		[BackgroundColor(255, 255, 255)]
+		[Label("[i:HuntressBuckler] Armor Multiplier")]
+		[Tooltip("How much Max Armor should clients have relative to their Defense?\n(10 Defense with a value of 3 will equal 30 Max Armor.)")]
+		[Range(1,5)]
+		[Increment(1)]
+		[Slider]
+		[DefaultValue(3)]
+		public int ArmorMultiplier;
+		*/
+		
+		[BackgroundColor(255, 200, 255)]
 		[Label("[i:LifeCrystal] Extra Life Mode")]
 		[Tooltip("Should the hearts you have count as Extra Lives?\n(Hearts will save you from death, but will be consumed in the process.)")]
 		[DefaultValue(false)]

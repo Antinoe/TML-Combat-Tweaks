@@ -70,12 +70,16 @@ namespace CombatTweaks.Common.Players{
 		public override bool FreeDodge(Player.HurtInfo info){
 			var player = Player;
 			ParryingPlayer pp = player.GetModPlayer<ParryingPlayer>();
+			//	Redacting these for now..
+			/*
 			bool manaGuardingBehavior1 = (GuardingConfig.Instance.ManaGuardingBehavior == 1 && guardingTime > 0 && pp.parryingTime == 0);
 			bool manaGuardingBehavior2 = (GuardingConfig.Instance.ManaGuardingBehavior == 2 && guardingTime > 0 && pp.parryingTime == 0 && player.statDefense > 0);
 			bool manaGuardingBehavior3 = (GuardingConfig.Instance.ManaGuardingBehavior == 3 && guardingTime > 0 && pp.parryingTime == 0 && hasShield);
 			bool manaGuardingBehavior4 = (GuardingConfig.Instance.ManaGuardingBehavior == 4 && player.statDefense > 0);
 			bool manaGuardingBehavior5 = (GuardingConfig.Instance.ManaGuardingBehavior == 5 && hasShield);
 			if(manaGuardingBehavior1 || manaGuardingBehavior2 || manaGuardingBehavior3 || manaGuardingBehavior4 || manaGuardingBehavior5){
+			*/
+			if(guardingTime > 0 && pp.parryingTime == 0 && hasShield){
 				if(player.statMana > 0 && player.statMana >= (info.Damage * GuardingConfig.Instance.ShieldGuardingDamageMultiplier)){
 					SoundEngine.PlaySound(SoundID.Tink with {Pitch=-0.65f,Volume=1f}, player.position);
 					player.statMana -= (info.Damage * GuardingConfig.Instance.ShieldGuardingDamageMultiplier);

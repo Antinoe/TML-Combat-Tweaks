@@ -48,6 +48,8 @@ namespace CombatTweaks.Common.Configs{
 		[DefaultValue(4)]
 		public int ShieldGuardingDamageMultiplier;
 		
+		//	Redacting this for now..
+		/*
 		[BackgroundColor(155, 155, 255)]
 		[Label("[i:ManaCrystal][i:IronChainmail][i:SquireShield] Mana Guarding Behavior")]
 		[Tooltip("1 - Guarding\n2 - Guarding with Defense\n3 - Guarding with Shield\n4 - Defense\n5 - Shield")]
@@ -56,6 +58,7 @@ namespace CombatTweaks.Common.Configs{
 		[Slider]
 		[DefaultValue(3)]
 		public int ManaGuardingBehavior;
+		*/
 		
 		//	Not implemented yet.
 		/*

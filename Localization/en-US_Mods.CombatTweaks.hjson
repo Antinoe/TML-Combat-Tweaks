@@ -106,6 +106,59 @@ Configs: {
 				(Hearts will save you from death, but will be consumed in the process.)
 				'''
 		}
+
+		ArmorMultiplier: {
+			Tooltip: How much Max Armor should clients have relative to their Defense? (10 Defense with a value of 3 will equal 30 Max Armor.)
+			Label: "[i:HuntressBuckler] Armor Multiplier"
+		}
+
+		ArmorMode: {
+			Label: "[i:HuntressBuckler] Armor Mode"
+			Tooltip:
+				'''
+				Should DOOM-like Armor mechanics be introduced?
+				(Armor Points act as extra Life and block debuffs.
+				Monsters set on fire will drop Armor Shards.)
+				'''
+		}
+
+		HealthPickups: {
+			Label: "[i:Heart] Health Pickups"
+			Tooltip:
+				'''
+				Should a DOOM-like Health mechanic be introduced?
+				(Killing monsters with Melee weapons will cause Heart Pickups to spew out.)
+				'''
+		}
+
+		ArmorPickups: {
+			Label: "[i:HuntressBuckler] Armor Pickups"
+			Tooltip:
+				'''
+				Should DOOM-like Armor mechanics be introduced?
+				(Monsters set on fire will drop Armor Shards.
+				Armor Points act as extra Life and block debuffs.)
+				'''
+		}
+
+		ArmorKnockback: {
+			Label: "[i:HuntressBuckler] Armor Knockback"
+			Tooltip:
+				'''
+				Should knockback be applied to clients that have Armor Points?
+				(WARNING: The physics still need work. Enable at your own discretion.)
+				'''
+		}
+
+		ArmorPickupAmount: {
+			Label: "[i:StoneBlock][i:HuntressBuckler] Armor Shard Amount"
+			Tooltip: How many Armor Points should each Armor Shard grant?
+		}
+
+		FireTimer: {
+			Label: "[i:MagmaStone][i:Stopwatch][i:HuntressBuckler] Fire Timer"
+			Tooltip: How long should the timer be for flaming monsters to drop an Armor Shard?
+		}
 	}
 
 	DodgingConfig: {
@@ -187,5 +240,22 @@ Configs: {
 			Label: "[i:FeralClaws] Parrying"
 			Tooltip: Should clients be allowed to parry?
 		}
+	}
+}
+
+Items: {
+	ArmorPickup: {
+		Tooltip: ""
+		DisplayName: Armor Pickup
+	}
+
+	LifePickup: {
+		DisplayName: Life Pickup
+		Tooltip: ""
+	}
+
+	BasicPickup: {
+		DisplayName: Basic Pickup
+		Tooltip: ""
 	}
 }
