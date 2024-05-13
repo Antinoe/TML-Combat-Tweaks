@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -21,7 +22,8 @@ namespace CombatTweaks.Common.Players{
 			bool hasLifeFruits = (player.statLifeMax >= 405 && player.statLifeMax <= 500);
 			if(DefenseConfig.Instance.MasterSwitch && DefenseConfig.Instance.ExtraLifeMode){
 				if(hasLifeCrystals){
-					SoundEngine.PlaySound(SoundID.Item9,player.position);
+					SoundEngine.PlaySound(SoundID.Shatter,player.position);
+					CombatText.NewText(new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height), Color.Red, "Life Crystal Expunged", true, true);
 					if(player.ConsumedLifeCrystals > 0){player.ConsumedLifeCrystals--;}
 					//player.statLifeMax -= 20;
 					player.statLife = player.statLifeMax;
@@ -29,7 +31,8 @@ namespace CombatTweaks.Common.Players{
 					return false;
 				}
 				if(hasLifeFruits){
-					SoundEngine.PlaySound(SoundID.Item9,player.position);
+					SoundEngine.PlaySound(SoundID.NPCDeath1,player.position);
+					CombatText.NewText(new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height), Color.Gold, "Life Fruit Expunged", true, true);
 					if(player.ConsumedLifeFruit > 0){player.ConsumedLifeFruit--;}
 					//player.statLifeMax -= 5;
 					player.statLife = player.statLifeMax;
