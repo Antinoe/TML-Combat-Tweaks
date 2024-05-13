@@ -54,7 +54,7 @@ namespace CombatTweaks.Common.Configs{
 		[BackgroundColor(255, 255, 255)]
 		[Label("[i:HuntressBuckler] Armor Pickups")]
 		[Tooltip("Should DOOM-like Armor mechanics be introduced?\n(Monsters set on fire will drop Armor Shards.\nArmor Points act as extra Life and block debuffs.)")]
-		[DefaultValue(false)]
+		[DefaultValue(true)]
 		public bool ArmorPickups;
 		
 		[BackgroundColor(255, 255, 255)]
