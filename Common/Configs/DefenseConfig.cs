@@ -69,7 +69,7 @@ namespace CombatTweaks.Common.Configs{
 		[Range(1,20)]
 		[Increment(1)]
 		[Slider]
-		[DefaultValue(2)]
+		[DefaultValue(3)]
 		public int ArmorPickupAmount;
 		
 		[BackgroundColor(255, 255, 255)]
